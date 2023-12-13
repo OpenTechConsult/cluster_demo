@@ -2,10 +2,10 @@
   "name": "cluster_demo",
   "version": "1.0.0",
   "description": "A demo Node.js application that scale using the cluster module. We are also going to dockerize the application",
-  "main": "index.js",
+  "main": "primary.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
+    "start": "node primary.js",
+    "dev": "nodemon primary.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

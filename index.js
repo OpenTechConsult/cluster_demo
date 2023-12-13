@@ -1,11 +1,19 @@
 const express = require("express");
 
-const app = express();
-
-app.get("/", (req, res) => {
-    res.send("<h2>Hi There!!!</h2>");
-});
-
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+const app = express();
+
+console.log(`worker pid=${process.pid}`);
+
+app.get('/heavy', (req, res) => {
+    let total = 0;
+    for (let i = 0; i < 5_000_000; i++) {
+        total++
+    }
+    res.send(`The result of CPU intensive task is ${total}\n`);
+});
+
+app.listen(PORT, () => {
+    console.log(`App listening on port ${PORT}`);
+});
